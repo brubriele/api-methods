@@ -8,4 +8,6 @@ app.listen(3842, () => {
     console.log('iniciou!')
 });
 
+app.use("/user", require("./routes/user"))
+
 db.sequelize.sync();
