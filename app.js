@@ -4,7 +4,7 @@ const app = express();
 const db = require('./models/index');
 
 
-app.listen(3742, () => {
+app.listen(3842, () => {
     console.log('iniciou!')
 });
 

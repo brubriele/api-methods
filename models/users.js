@@ -5,7 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING
   }, {});
   Users.associate = function(models) {
-    // associations can be defined here
+    Users.hasMany(models.Orders, {
+      foreingKey: 'uid'
+    });
   };
   return Users;
 };
