@@ -16,16 +16,12 @@ router.get("/:productName", (req, res) => {
         .then(product => res.send(product))
 });
 
-
-router.delete('/:Destroy', (req, res) => {
-    Products.findByPk(req.params.id).then((product) => {
+router.delete('/post/:id', (req, res) => {
+    Products.findById(req.params.id).then((product) => {
         return product.destroy();
     }).then(() => {
         res.status(200).send('deleted successfully a customer with id = ' + id);
     });
 });
-
-
-
 
 module.exports = router;
