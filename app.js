@@ -10,6 +10,9 @@ app.listen(3842, () => {
 
 app.use("/user", require("./routes/user"));
 app.use("/productName", require("./routes/product"));
+// app.delete("/Destroy", require("./routes/product"));
+
+// app.delete('/models/products', products.delete);
 
 
 db.sequelize.sync();
