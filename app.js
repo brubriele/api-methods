@@ -10,6 +10,7 @@ app.listen(3842, () => {
     console.log('iniciou!')
 });
 
+app.use(express.json)
 app.use("/user", require("./routes/user"));
 app.use("/productName", require("./routes/product"));
 // app.delete("/Destroy", require("./routes/product"));
