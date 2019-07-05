@@ -16,6 +16,13 @@ router.get("/:id", (req, res) => {
    .then(user => res.send(user))    
 });
 
+router.delete('/post/:id', (req, res) => {
+    Users.findById(req.params.id).then((user) => {
+        return user.destroy();
+    }).then(() => {
+        res.status(200).send('deleted successfully a customer with id = ' + id);
+    });
+});
 
 
 module.exports = router;
