@@ -3,11 +3,14 @@ const app = express();
 const db = require('./models/index');
 const models = require('./models');
 const Products = models.Products;
-
+const Users = models.Users;
+const Orders = models.Orders;
 
 app.listen(3842, () => {
   console.log('iniciou!')
 });
+
+app.use(express.json())
 
 // GET
 app.use("/user", require("./routes/user"));
@@ -25,14 +28,23 @@ app.delete("/productName/:id", (req, res) =>
 );
 
 app.delete("/user/:id", (req, res) =>
-  Products.destroy({
+  Users.destroy({
     where: {
       id: req.params.id
     }
-  }).then((result) => res.json(result))
+  }).then('Deletado', (result) => res.json(result))
 );
 
 // POST
+
+// app.use("/createOrder", require("./routes/order"));
+
+app.post("/createOrder", (req, res) => {
+  Orders.create(req.body)
+  .then(order => {
+      res.send(order.dataValues)
+  })
+})
 
 
 db.sequelize.sync();
